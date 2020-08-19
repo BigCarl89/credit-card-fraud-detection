@@ -38,8 +38,7 @@ In the end, using a threshold of 0.71 with Random Forest Classifier, i have impr
 - F1-Score 0.88  
   
 ### Deliverables
-Other than this repo, a blog post is made available on Medium at this link
-
+Other than this repo, a blog post is made available on Medium at this [link](https://medium.com/@albertocarlone89/detecting-frauds-on-credit-card-transactions-and-how-to-deal-with-an-unbalanced-dataset-dbf718a16ad8?source=friends_link&sk=b2dbba0ff96a7f455ebbfbeb39fba176)
 ## Authors
 
 - [**Alberto Carlone**](https://github.com/BigCarl89)
