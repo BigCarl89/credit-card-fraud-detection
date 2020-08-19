@@ -1,107 +1,52 @@
-# Project Title
+# Credit Card Fraud Detection by Alberto Carlone
+#### Udacity Data Scientist Nanodegree
 
-One Paragraph of project description goes here
+### Project Description
+This is the final project of Udacity Data Scientist Nanodegree, based on Kaggle dataset Credit Card Fraud Detection.  
+The dataset can be found at this [link](https://www.kaggle.com/mlg-ulb/creditcardfraud).  
+Our aim is to build a model through Machine Learning that can predict if a transaction is fraudolent or not, taking into account that we also have to reduce false positive (in the form of service interrutption for our customers).  
+To achieve this, we also have to address the problem of the unbalanced data with oversampling algorithms.
 
-This initially appeared on
-[gist](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2), but as
-I can no longer open that page as there are too many comments, I have
-moved it here.
+### Libraries and Python Version
+- Python 3.7.5
+- Pandas, Numpy
+- Seaborn, Matplotlib for Visualizations
+- Scikit-learn for Machine Learning
+- Imbalanced-learn for oversampling algorithms and pipelines
+- Time for custom timing functions used during model fitting
 
-## Summary
+### Installing libraries
+To install imblearn follow this [guide](https://imbalanced-learn.readthedocs.io/en/stable/install.html)
+If you are using Anaconda, the rest of the libraries are already present.
 
-  - [Getting Started](#getting-started)
-  - [Runing the tests](#running-the-tests)
-  - [Deployment](#deployment)
-  - [Built With](#built-with)
-  - [Contributing](#contributing)
-  - [Versioning](#versioning)
-  - [Authors](#authors)
-  - [License](#license)
-  - [Acknowledgments](#acknowledgments)
+### Files description
+In this repository is present the Jupiter Notebook in .ipynb and in HTML and this README file. The dataset is not present since it is available directly from Kaggle.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on
-your local machine for development and testing purposes. See deployment
-for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-    Give examples
-
-### Installing
-
-A step by step series of examples that tell you how to get a development
-env running
-
-Say what the step will be
-
-    Give the example
-
-And repeat
-
-    until finished
-
-End with an example of getting some data out of the system or using it
-for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-    Give an example
-
-### And coding style tests
-
-Explain what these tests test and why
-
-    Give an example
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-  - [Contributor Covenant](https://www.contributor-covenant.org/) - Used
-    for the Code of Conduct
-  - [Creative Commons](https://creativecommons.org/) - Used to choose
-    the license
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code
-of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions
-available, see the [tags on this
-repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
+### Results Summary
+Oversampling was made through ADASYN algorithm. With the dataset balanced i have then proceded to fit, and subsequently tune with GridSearchCV, a Random Forest Classifier (and also a Logistic Regression Classifier but with worse results) obtaining already good results:
+- Precision 0.83
+- Recall 0.87
+- Fall-out 0.000293
+- F1-Score 0.85  
+  
+These result can be improved tuning the probability threshold of a transaction to be fraudolent or not. I have then graphically located which Precision/Recall scores are suited for a good balance of values and then, through similarities between our generated arrays of Precision and Recall, find the best values of thresholds to consider.  
+  
+In the end, using a threshold of 0.71 with Random Forest Classifier, i have improved the results with the following scores:
+- Precision 0.91
+- Recall 0.86
+- Fall-out 0.000141
+- F1-Score 0.88  
+  
+### Deliverables
+Other than this repo, a blog post is made available on Medium at this link
 
 ## Authors
 
-  - **Billie Thompson** - *Provided README Template* -
-    [PurpleBooth](https://github.com/PurpleBooth)
+- [**Alberto Carlone**](https://github.com/BigCarl89)
 
-See also the list of
-[contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
-who participated in this project.
-
-## License
-
-This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
-Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
-details
 
 ## Acknowledgments
 
-  - Hat tip to anyone whose code was used
-  - Inspiration
-  - etc
+- Machine Learning Group - ULB for providing the dataset on Kaggle
+- Imbalanced-learn creators for making an awesome library
+
